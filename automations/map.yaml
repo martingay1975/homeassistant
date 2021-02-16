@@ -1,0 +1,191 @@
+- id: '1613058769639'
+  alias: Laura Leaves Home
+  description: Laura Leave Home1
+  trigger:
+  - platform: state
+    entity_id: person.laura_gay
+    from: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: Mummy has left the building. Paaaartyyyyyy On!
+  mode: single
+  
+- id: '1613058769630'
+  alias: Laura Comes Home
+  description: Laura Comes Home1
+  trigger:
+  - platform: state
+    entity_id: person.laura_gay
+    to: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Mummy is back. Quick. Hide"
+  mode: single
+  
+- id: '1613058769649'
+  alias: Daddy Leaves Home
+  description: Daddy Leave Home1
+  trigger:
+  - platform: state
+    entity_id: person.martin_gay
+    from: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Daddy has left the building. Get the pizzas in"
+  mode: single
+  
+- id: '1613058769640'
+  alias: Daddy Comes Home
+  description: Daddy Comes Home1
+  trigger:
+  - platform: state
+    entity_id: person.martin_gay
+    to: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Daddy is back. Look busy and get the kettle on."
+  mode: single
+  
+- id: '1613058769659'
+  alias: Katie Leaves Home
+  description: Katie Leave Home1
+  trigger:
+  - platform: state
+    entity_id: person.katie_gay
+    from: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Katie has left the building. We miss her"
+  mode: single
+  
+- id: '1613058769650'
+  alias: Katie Comes Home
+  description: Katie Comes Home1
+  trigger:
+  - platform: state
+    entity_id: person.katie_gay
+    to: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Katie is back. Get your cuddle arms out."
+  mode: single
+  
+- id: '1613058769660'
+  alias: Katie Arrives At College
+  description: Katie Arrives At College
+  trigger:
+  - platform: state
+    entity_id: person.katie_gay
+    to: zone.farnborough_sixth_form
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Katie has arrived at college"
+  mode: single
+  
+- id: '1613058769661'
+  alias: Katie Leaves College
+  description: Katie Leaves College
+  trigger:
+  - platform: state
+    entity_id: person.katie_gay
+    from: zone.farnborough_sixth_form
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Katie has left college"
+  mode: single
+  
+- id: '1613058769669'
+  alias: Jessica Leaves Home
+  description: Jessica Leave Home1
+  trigger:
+  - platform: state
+    entity_id: person.jessica_gay
+    from: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Jessica has left the building. Relax"
+  mode: single
+  
+- id: '1613058769670'
+  alias: Jessica Comes Home
+  description: Jessica Comes Home1
+  trigger:
+  - platform: state
+    entity_id: person.jessica_gay
+    to: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Jessica is back. Has she been spending again?"
+  mode: single
+  
+- id: '1613058769679'
+  alias: Ben Leaves Home
+  description: Ben Leave Home1
+  trigger:
+  - platform: state
+    entity_id: person.ben_gay
+    from: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Ben has left the building."
+  mode: single
+  
+- id: '1613058769680'
+  alias: Ben Comes Home
+  description: Ben  Comes Home1
+  trigger:
+  - platform: state
+    entity_id: person.ben_gay
+    to: home
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Ben is back. What adventure has he been on?"
+  mode: single

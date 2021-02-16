@@ -1,0 +1,95 @@
+# Flashing loop1, calls Flashing loop2
+flash_light_loop1:
+  alias: Flash Light Loop 1
+  sequence:
+  - service: light.turn_off
+    data:
+      entity_id: light.breakfast_bar_1
+  - service: light.turn_off
+    data:
+      entity_id: light.breakfast_bar_2
+  - service: light.turn_off
+    data:
+      entity_id: light.breakfast_bar_3
+  - delay: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_1
+      rgb_color: [255, 0, 0]
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_2
+      rgb_color: [255, 0, 0]
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_3
+      rgb_color: [255, 0, 0]
+  - delay: 1
+  - service: script.turn_on
+    entity_id: script.flash_light_loop2
+
+# Flashing loop2, calls back to Flashing loop1
+flash_light_loop2:
+  alias: Flash Light Loop 2
+  sequence:
+  - service: light.turn_off
+    data:
+      entity_id: light.breakfast_bar_1
+  - service: light.turn_off
+    data:
+      entity_id: light.breakfast_bar_2
+  - service: light.turn_off
+    data:
+      entity_id: light.breakfast_bar_3
+  - delay: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_1
+      rgb_color: [0, 0, 255]
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_2
+      rgb_color: [0, 0, 255]
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_3
+      rgb_color: [0, 0, 255]
+  - delay: 1
+  - service: script.turn_on
+    entity_id: script.flash_light_loop1
+
+# Turn the flashing on
+flash_light_on:
+  alias: Flash Light Turn On
+  sequence:
+  - service: script.turn_on
+    entity_id: script.flash_light_loop1
+
+# Turn the flashing off
+flash_light_off:
+  alias: Flash Light Turn Off
+  sequence:
+  - service: script.turn_off
+    entity_id: script.flash_light_loop1
+  - service: script.turn_off
+    entity_id: script.flash_light_loop2
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_1
+      rgb_color: [255, 255, 255]
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_2
+      rgb_color: [255, 255, 255]
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_3
+      rgb_color: [255, 255, 255]
+      
+tester:
+  alias: tester
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.breakfast_bar_2
+      rgb_color: [0, 255, 0]

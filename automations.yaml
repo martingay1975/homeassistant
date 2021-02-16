@@ -1,0 +1,41 @@
+- id: '1611526310626'
+  alias: Blood Sugar Monitoring Hyper or Hypo
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.blood_sugar
+    for: 0:03:00
+    below: 72
+  - platform: numeric_state
+    entity_id: sensor.blood_sugar
+    for: 0:03:00
+    above: 126
+  action:
+  - service: script.turn_on
+    entity_id: script.flash_light_on
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Oh Oh. Daddy look at your glucose levels"
+  mode: single
+  
+- id: '1611607165047'
+  alias: Blood Sugar Monitoring Normal
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.blood_sugar
+    below: 127
+    above: 71
+  action:
+  - service: script.flash_light_off
+    data: {}
+  - service: media_player.turn_on
+    entity_id: media_player.katie_google_nest  
+  - service: tts.google_translate_say
+    entity_id: media_player.katie_google_nest
+    data:
+      message: "Well done Daddy. Back under control"
+  mode: single
